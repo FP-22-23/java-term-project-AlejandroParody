@@ -1,10 +1,13 @@
-package dnd_spells;
+package fp.dnd_spells;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import utils.Checkers;
+import fp.auxi.Clas;
+import fp.auxi.Ctime;
+import fp.auxi.School;
+import fp.utils.Checkers;
 
 public record Spell (
 String name, ArrayList<Clas> Classes, School school, Ctime cast_time, Double range, String duration, Boolean verbal, Boolean somatic, Boolean material, String mat_cost, LocalDate date, Integer year, String description) implements Comparable<Spell> {
@@ -98,5 +101,6 @@ String name, ArrayList<Clas> Classes, School school, Ctime cast_time, Double ran
 	public Integer year() {
 		return date.getYear();
 	}
+	
 	
 }
