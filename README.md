@@ -8,7 +8,9 @@ UVUS: DPC6046
 In this project we will work with a dataset with information of the different spells from the fantasy tabletop role-playing game named Dungeons and Dragons (DnD or D&D for short).
 
 The original dataset has been obtained from the following kaggle link:
+
 https://www.kaggle.com/datasets/mrpantherson/dndspells
+
 The original dataset presents some problems like the fact that we lack some properties like LocalDate. This is why I have chosen to add some new columns or delete others that were not necessary.
 
 ## Project's folder structure
