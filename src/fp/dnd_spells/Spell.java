@@ -2,103 +2,167 @@ package fp.dnd_spells;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Objects;
-
-import fp.auxi.Clas;
 import fp.auxi.Ctime;
 import fp.auxi.School;
+import fp.auxi.Spelltype;
 import fp.utils.Checkers;
 
-public record Spell (
-String name, ArrayList<Clas> Classes, School school, Ctime cast_time, Double range, String duration, Boolean verbal, Boolean somatic, Boolean material, String mat_cost, LocalDate date, Integer year, String description) implements Comparable<Spell> {
+public class Spell {
+	String name; 
+	ArrayList<String> Classes; 
+	School school; 
+	Ctime cast_time; 
+	Double range; 
+	String duration; 
+	Spelltype type; 
+	String mat_cost;  
+	Boolean material; 
+	LocalDate date; 
+	Integer year; 
+	String description; 
 
-	public Spell {
+	public Spell(String n, School s, Spelltype t) {
+		name = n;
+		Classes = new ArrayList<String>();
+		school = s;
+		cast_time = Ctime.OTHER;
+		range = 0.0;
+		duration = new String();
+		type = t;
+		mat_cost = new String();
+		material = false;
+		date = LocalDate.now();
+		year = date.getYear();
+		description = new String();
+		
+	}
+	
+	public Spell(String n)  {
+		name = n;
+		Classes = new ArrayList<String>();
+		school = School.OTHER;
+		cast_time = Ctime.OTHER;
+		range = 0.0;
+		duration = new String();
+		type = new Spelltype(false, false,"");
+		mat_cost = new String();
+		material = false;
+		date = LocalDate.now();
+		year = date.getYear();
+		description = new String();
+	}
+	
+	public Spell() {
 		Checkers.check("The range can't be negative", range >= 0);
 		Checkers.check("The spell needs a name", name != null);
 		Checkers.check("The date of creation needs to be either today or before", date.compareTo(LocalDate.now()) == 0 || date.compareTo(LocalDate.now()) == -1);
 	}
-	public int compareTo(Spell o) {
-		int a;
-		a = name().compareTo(o.name());
-		if (a == 0) {
-			a = school().compareTo(o.school());
-		}
-		return a;
-	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(Classes, cast_time, date, description, duration, mat_cost, name, range, school, somatic,
-				verbal);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Spell other = (Spell) obj;
-		return Objects.equals(Classes, other.Classes) && cast_time == other.cast_time
-				&& Objects.equals(date, other.date) && Objects.equals(description, other.description)
-				&& Objects.equals(duration, other.duration) && Objects.equals(mat_cost, other.mat_cost)
-				&& Objects.equals(name, other.name) && Objects.equals(range, other.range) && school == other.school
-				&& Objects.equals(somatic, other.somatic) && Objects.equals(verbal, other.verbal);
-	}
-
-	public String name() {
+	
+	public String getName() {
 		return name;
 	}
 
-	public ArrayList<Clas> Classes() {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<String> getClasses() {
 		return Classes;
 	}
 
-	public School school() {
+	public void setClasses(ArrayList<String> classes) {
+		Classes = classes;
+	}
+
+	public School getSchool() {
 		return school;
 	}
 
-	public Ctime cast_time() {
+	public void setSchool(School school) {
+		this.school = school;
+	}
+
+	public Ctime getCast_time() {
 		return cast_time;
 	}
 
-	public Double range() {
+	public void setCast_time(Ctime cast_time) {
+		this.cast_time = cast_time;
+	}
+
+	public Double getRange() {
 		return range;
 	}
 
-	public String duration() {
+	public void setRange(Double range) {
+		this.range = range;
+	}
+
+	public String getDuration() {
 		return duration;
 	}
 
-	public Boolean verbal() {
-		return verbal;
+	public void setDuration(String duration) {
+		this.duration = duration;
 	}
 
-	public Boolean somatic() {
-		return somatic;
+	public Spelltype getType() {
+		return type;
 	}
 
-	public String mat_cost() {
+	public void setType(Spelltype type) {
+		this.type = type;
+	}
+
+	public String getMat_cost() {
 		return mat_cost;
 	}
 
-	public LocalDate date() {
+	public void setMat_cost(String mat_cost) {
+		this.mat_cost = mat_cost;
+	}
+
+	public void setMaterial(Boolean material) {
+		this.material = material;
+	}
+
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public String description() {
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+	public String getDescription() {
 		return description;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+	public int compareTo(Spell o) {
+		int a = getName().compareTo(o.getName());
+		if (a == 0) {
+			a = getSchool().compareTo(o.getSchool());
+		}
+		return a;
+	}
+	
 	//derived boolean material from mat_cost
-	public Boolean material() {
+	public Boolean getMaterial() {
 		return mat_cost != null;
 	}
 	
 	//get the integer year as a derived
-	public Integer year() {
+	public Integer getYear() {
 		return date.getYear();
 	}
 	
