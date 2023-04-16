@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import fp.dnd_spells.Spell;
 import fp.auxi.Ctime;
 import fp.auxi.School;
 import fp.auxi.Spelltype;
@@ -13,7 +12,7 @@ import fp.utils.Checkers;
 
 public class SpellFactory {
 
-	public Spell SpellFactory (String s) {
+	public Spell SpellF (String s) {
 		String [] a = s.split(";");
 		Checkers.check("Invalid string format", a.length == 11);
 		String name1 = a[0].trim();
