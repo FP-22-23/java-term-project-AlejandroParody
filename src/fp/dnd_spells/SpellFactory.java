@@ -13,7 +13,7 @@ import fp.utils.Checkers;
 
 public class SpellFactory {
 
-	public Spell Spell (String s) {
+	public Spell SpellFactory (String s) {
 		String [] a = s.split(";");
 		Checkers.check("Invalid string format", a.length == 11);
 		String name1 = a[0].trim();
@@ -29,11 +29,14 @@ public class SpellFactory {
 		Integer year1 = date1.getYear();
 		String description1 = a[10].trim();
 		
-		return Spell(name1, Classes1, school1, cast_time1, range1, duration1, type1, mat_cost1, material1, date1, year1, description1);
+		Spell z = new Spell(name1, Classes1, school1, cast_time1, range1, duration1, type1, mat_cost1, material1, date1, year1, description1);
+		return z;
 	}
 
 	public Spelltype parseBool(String a, String b) {
-		return null;
+		Spelltype c = new Spelltype(a, b);
+		return c;
 	}
+
 
 }

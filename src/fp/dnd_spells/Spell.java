@@ -37,6 +37,21 @@ public class Spell {
 		
 	}
 	
+	public Spell(String name1, ArrayList<String> classes1, School school1, Ctime cast_time1, Double range1, String duration1, Spelltype type1, String mat_cost1, Boolean material1, LocalDate date1, Integer year1, String description1) {
+		name = name1;
+		Classes = classes1;
+		school = school1;
+		cast_time = cast_time1;
+		range = range1;
+		duration = duration1;
+		type = type1;
+		mat_cost = mat_cost1;
+		material = material1;
+		date = date1;
+		year = year1;
+		description = description1;
+	}
+	
 	public Spell(String n)  {
 		name = n;
 		Classes = new ArrayList<String>();
