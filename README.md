@@ -8,7 +8,9 @@ UVUS: DPC6046
 In this project we will work with a dataset with information of the different spells from the fantasy tabletop role-playing game named Dungeons and Dragons (DnD or D&D for short).
 
 The original dataset has been obtained from the following kaggle link:
+
 https://www.kaggle.com/datasets/mrpantherson/dndspells
+
 The original dataset presents some problems like the fact that we lack some properties like LocalDate. This is why I have chosen to add some new columns or delete others that were not necessary.
 
 ## Project's folder structure
@@ -27,31 +29,31 @@ The original dataset presents some problems like the fact that we lack some prop
 
 Every line of the dataset includes the information of a different spell of Dungeons and Dragons,  and for every spell we have the following information:
 
-* Name : Of <String> type, in this column we have the name of the spell.
+* Name : Of String type, in this column we have the name of the spell.
 
-* Classes : Of <ArrayList> type, in this column we have a list of the different classes that can use the spell.
+* Classes : Of ArrayList type, in this column we have a list of the different classes that can use the spell.
 
-* school : Of type <Enum>, it represents to what school of magic the spell belongs to.
+* school : Of Enum type, it represents to what school of magic the spell belongs to.
 
-* cast_time : Of type <Enum>, it represents how long it takes to cast the spell in game.
+* cast_time : Of Enum type, it represents how long it takes to cast the spell in game.
 
-* range : Of type <Double>, it represents the distance in meters that the spell can reach.
+* range : Of Double type, it represents the distance in meters that the spell can reach.
 
-* Duration : Of type <String>, it means the time the spell remains after been cast.
+* Duration : Of String type, it means the time the spell remains after been cast.
 
-* verbal : Of type <Boolean>, it represents the need to speak or not to be able to cast the spell.
+* verbal : Of Boolean type, it represents the need to speak or not to be able to cast the spell.
 
-* somatic : Of type <Boolean>, it represents the need to be in touch with the objective of the spell to cast it.
+* somatic : Of Boolean type, it represents the need to be in touch with the objective of the spell to cast it.
 
-* material : Of type <Boolean>, a derived type from mat_cost, it represents if the spell needs a material to be cast.
+* material : Of Boolean type, a derived type from mat_cost, it represents if the spell needs a material to be cast.
 
-* mat_cost : Of type <String>, in the case the spell needs a material to cast it, here we have the material/s needed.
+* mat_cost : Of String type, in the case the spell needs a material to cast it, here we have the material/s needed.
 
-* date : Of type <LocalDate>, it's the date in which the book where the spell first appeared was released.
+* date : Of LocalDate type, it's the date in which the book where the spell first appeared was released.
 
-* year : Of type <Integer>, a derived type from the date, it's the year the spell was implemented.
+* year : Of Integer type, a derived type from the date, it's the year the spell was implemented.
 
-* Description: Of type <String>, an explanation of what the spell does in-game.
+* Description: Of String type, an explanation of what the spell does in-game.
 
 ## Implemented types
 
