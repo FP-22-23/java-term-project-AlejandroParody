@@ -1,7 +1,10 @@
 package fp.dnd_spells;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import fp.auxi.Ctime;
 import fp.auxi.School;
 import fp.auxi.Spelltype;
@@ -51,22 +54,7 @@ public class Spell {
 		year = year1;
 		description = description1;
 	}
-	
-	public Spell(String n)  {
-		name = n;
-		Classes = new ArrayList<String>();
-		school = School.OTHER;
-		cast_time = Ctime.OTHER;
-		range = 0.0;
-		duration = new String();
-		type = new Spelltype(false, false,"");
-		mat_cost = new String();
-		material = false;
-		date = LocalDate.now();
-		year = date.getYear();
-		description = new String();
-	}
-	
+
 	public Spell() {
 		Checkers.check("The range can't be negative", range >= 0);
 		Checkers.check("The spell needs a name", name != null);
@@ -181,5 +169,38 @@ public class Spell {
 		return date.getYear();
 	}
 	
-	
+	public Spell(String s) {
+		String [] a = s.split(";");
+		Checkers.check("Invalid string format", a.length == 11);
+		String name1 = a[0].trim();
+		ArrayList<String> Classes1 = new ArrayList<String>(Arrays.asList(a[1].split(",")));
+		School school1 = School.valueOf(a[2]);
+		Ctime cast_time1 = Ctime.valueOf(a[3]);
+		Double range1 = Double.valueOf(a[4]);
+		String duration1 = a[5].trim();
+		Spelltype type1 = parseBool(a[6],a[7]);
+		String mat_cost1 = a[8].trim();
+		Boolean material1 = mat_cost1 != null;
+		LocalDate date1 = LocalDate.parse(a[9], DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		Integer year1 = date1.getYear();
+		String description1 = a[10].trim();
+		
+		name = name1;
+		Classes = Classes1;
+		school = school1;
+		cast_time = cast_time1;
+		range = range1;
+		duration = duration1;
+		type = type1;
+		mat_cost = mat_cost1;
+		material = material1;
+		date = date1;
+		year = year1;
+		description = description1;
+	}
+
+	public static Spelltype parseBool(String a, String b) {
+		Spelltype c = new Spelltype(a, b);
+		return c;
+	}
 }
