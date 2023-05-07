@@ -8,6 +8,8 @@ public class Spelltype implements Comparable<Spelltype>{
 	Boolean somatic; 	
 	String text;
 	
+	//derived property, uses three values from the string of text of the csv.
+	
 	public Spelltype(Boolean v, Boolean s, String t) {
 		verbal = v;
 		somatic = s;

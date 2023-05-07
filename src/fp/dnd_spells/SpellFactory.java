@@ -3,6 +3,7 @@ package fp.dnd_spells;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class SpellFactory {
@@ -11,7 +12,25 @@ public class SpellFactory {
 		return new Spell(line);
 	}
 	
-	public static SpellContainer readFile(String file) {
+	public static SpellContainer readFilefromPath(String file) {
+		SpellContainer s = new SpellContainer();
+		try {
+			Scanner sc = new Scanner(Paths.get(file));
+			String line;
+			
+			while((line  = sc.next()) != null) {
+				Spell l = ParseSpell(line);
+	            s.addItem(l);;
+			}
+			sc.close();
+		}catch (IOException e) {
+		System.out.println("Error in file " + file);
+		e.printStackTrace();
+		}
+		return s;
+	}
+	
+	public static SpellContainer readFilefromStream(String file) {
 		SpellContainer s = null;
 		try {
 			Stream<Spell> sp =
@@ -25,5 +44,6 @@ public class SpellFactory {
 		}
 		return s;
 	}
+	
 	
 }

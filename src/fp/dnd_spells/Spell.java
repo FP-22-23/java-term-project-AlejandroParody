@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import fp.auxi.Ctime;
 import fp.auxi.School;
@@ -24,22 +25,26 @@ public class Spell {
 	Integer year; 
 	String description; 
 
+	
+	//Constructor 1, recieves a name, a school and the spell type.
 	public Spell(String n, School s, Spelltype t) {
 		name = n;
 		Classes = new ArrayList<String>();
 		school = s;
 		cast_time = Ctime.OTHER;
 		range = 0.0;
-		duration = new String();
+		duration = "";
 		type = t;
-		mat_cost = new String();
+		mat_cost = "";
 		material = false;
 		date = LocalDate.now();
 		year = date.getYear();
-		description = new String();
+		description = "";
 		
 	}
 	
+	
+	//Constructor 2, recieves a value for each.
 	public Spell(String name1, ArrayList<String> classes1, School school1, Ctime cast_time1, Double range1, String duration1, Spelltype type1, String mat_cost1, Boolean material1, LocalDate date1, Integer year1, String description1) {
 		name = name1;
 		Classes = classes1;
@@ -55,12 +60,15 @@ public class Spell {
 		description = description1;
 	}
 
+	//Data constrains, a non-negative value, a date before today, and it needs a name.
 	public Spell() {
 		Checkers.check("The range can't be negative", range >= 0);
 		Checkers.check("The spell needs a name", name != null);
 		Checkers.check("The date of creation needs to be either today or before", date.compareTo(LocalDate.now()) == 0 || date.compareTo(LocalDate.now()) == -1);
 	}
 
+	
+	//Getters and Setters
 	
 	public String getName() {
 		return name;
@@ -150,6 +158,7 @@ public class Spell {
 		this.description = description;
 	}
 
+	//Compareto
 	
 	public int compareTo(Spell o) {
 		int a = getName().compareTo(o.getName());
@@ -169,6 +178,7 @@ public class Spell {
 		return date.getYear();
 	}
 	
+	//Constructor 3, only recieves a string.
 	public Spell(String s) {
 		String [] a = s.split(";");
 		Checkers.check("Invalid string format", a.length == 11);
@@ -203,4 +213,40 @@ public class Spell {
 		Spelltype c = new Spelltype(a, b);
 		return c;
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(Classes, cast_time, date, description, duration, mat_cost, material, name, range, school,
+				type, year);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Spell other = (Spell) obj;
+		return Objects.equals(Classes, other.Classes) && cast_time == other.cast_time
+				&& Objects.equals(date, other.date) && Objects.equals(description, other.description)
+				&& Objects.equals(duration, other.duration) && Objects.equals(mat_cost, other.mat_cost)
+				&& Objects.equals(material, other.material) && Objects.equals(name, other.name)
+				&& Objects.equals(range, other.range) && school == other.school && Objects.equals(type, other.type)
+				&& Objects.equals(year, other.year);
+	}
+
+
+	@Override
+	public String toString() {
+		return "Spell [name=" + name + ", Classes=" + Classes + ", school=" + school + ", cast_time=" + cast_time
+				+ ", range=" + range + ", duration=" + duration + ", type=" + type + ", mat_cost=" + mat_cost
+				+ ", material=" + material + ", date=" + date + ", year=" + year + ", description=" + description + "]";
+	}
+
+	
+	
 }
