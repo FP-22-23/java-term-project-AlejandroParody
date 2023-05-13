@@ -26,7 +26,7 @@ public class Spell {
 	String description; 
 
 	
-	//Constructor 1, recieves a name, a school and the spell type.
+	//Constructor 1, receives a name, a school and the spell type.
 	public Spell(String n, School s, Spelltype t) {
 		name = n;
 		Classes = new ArrayList<String>();
@@ -44,7 +44,7 @@ public class Spell {
 	}
 	
 	
-	//Constructor 2, recieves a value for each.
+	//Constructor 2, receives a value for each.
 	public Spell(String name1, ArrayList<String> classes1, School school1, Ctime cast_time1, Double range1, String duration1, Spelltype type1, String mat_cost1, Boolean material1, LocalDate date1, Integer year1, String description1) {
 		name = name1;
 		Classes = classes1;
@@ -63,7 +63,7 @@ public class Spell {
 	//Data constrains, a non-negative value, a date before today, and it needs a name.
 	public Spell() {
 		Checkers.check("The range can't be negative", range >= 0);
-		Checkers.check("The spell needs a name", name != null);
+		Checkers.check("The spell needs a name", name != "" && name != null);
 		Checkers.check("The date of creation needs to be either today or before", date.compareTo(LocalDate.now()) == 0 || date.compareTo(LocalDate.now()) == -1);
 	}
 
@@ -158,7 +158,7 @@ public class Spell {
 		this.description = description;
 	}
 
-	//Compareto
+	//CompareTo
 	
 	public int compareTo(Spell o) {
 		int a = getName().compareTo(o.getName());
@@ -178,7 +178,7 @@ public class Spell {
 		return date.getYear();
 	}
 	
-	//Constructor 3, only recieves a string.
+	//Constructor 3, only receives a string.
 	public Spell(String s) {
 		String [] a = s.split(";");
 		Checkers.check("Invalid string format", a.length == 11);

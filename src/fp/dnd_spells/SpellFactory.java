@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SpellFactory {
@@ -15,14 +16,11 @@ public class SpellFactory {
 	public static SpellContainer readFilefromPath(String file) {
 		SpellContainer s = new SpellContainer();
 		try {
-			Scanner sc = new Scanner(Paths.get(file));
-			String line;
-			
-			while((line  = sc.next()) != null) {
-				Spell l = ParseSpell(line);
-	            s.addItem(l);;
-			}
-			sc.close();
+			Stream<Spell> sp =
+					Files.lines(Paths.get(file))
+					.skip(1)
+					.map(SpellFactory::ParseSpell);
+			s = new SpellContainer(sp.collect(Collectors.toSet()));
 		}catch (IOException e) {
 		System.out.println("Error in file " + file);
 		e.printStackTrace();
