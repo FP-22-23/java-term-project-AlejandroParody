@@ -1,5 +1,6 @@
 package fp.dnd_spells;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -13,14 +14,17 @@ public class SpellContainer {
 
 	private Set<Spell> SpellContainer;
 	
+	// A constructor which creates a container without items in the collection.
 	public SpellContainer() {
 		setSpells(new HashSet<>());
 	}
 
+	// Constructor from a collection of objects.
 	public SpellContainer(Set<Spell> s) {
 		SpellContainer = s;
 	}
 	
+	// Constructor from a Stream.
 	public SpellContainer(Stream<Spell> sp) {
 		SpellContainer = sp.collect(Collectors.toSet());
 	}
@@ -35,8 +39,8 @@ public class SpellContainer {
 	
 	
 	// Operation to get the number of items.
-	public Integer getNumItems(Set<Spell> sc) {
-		return sc.size();
+	public Integer getNumItems() {
+		return SpellContainer.size();
 	}
 
 	// Operation to add an item.
@@ -87,6 +91,7 @@ public class SpellContainer {
 		return a;
 	}
 	
+	// as above but with Streams
 	public Boolean SpellCheckST(String s) {
 		return SpellContainer.stream()
 				.anyMatch(sc -> sc.getName().toLowerCase().equals(s.toLowerCase()));
@@ -105,9 +110,10 @@ public class SpellContainer {
 		return a;
 	}
 	
+	// as above but with Streams
 	public Integer NumSpellsST(String c) {
 		return (int) SpellContainer.stream()
-				.filter(sc -> sc.getName().equals(c))
+				.filter(sc -> sc.Classes.contains(c))
 				.count();
 	}
 	
@@ -124,16 +130,17 @@ public class SpellContainer {
 		return a;
 	}
 	
+	// as above but with Streams
 	public Set<Spell> ClassSpellsST(String c) {
 		return SpellContainer.stream()
-				.filter(sc -> sc.getClasses().contains(c))
-				.collect(Collectors.toCollection(TreeSet::new));
+				.filter(sc -> sc.Classes.contains(c))
+				.collect(Collectors.toCollection(HashSet::new));
 	}
 	
 	
 	//It creates a set of classes, add it as keys for the map and then add the spell to each class that can use it.
 
-	public Map<String, Set<Spell>> ClassSpells() {
+	public Map<String, Set<Spell>> SpellsbyClass() {
 		Map<String, Set<Spell>> m = new HashMap<String, Set<Spell>>();
 		Set<String> keys = new HashSet<String>();
 		
@@ -150,7 +157,13 @@ public class SpellContainer {
 		}
 	return m;
 	}
-
+	
+	// as above but with Streams
+	public Map<String, Set<Spell>> SpellsbyClassST() {
+		return null;
+				//SpellContainer.stream()
+				//.map();
+	}
 	
 	
 	//It creates a set of classes, add it as keys for the map and then spell by spell checks if it's contained and then sum 1 if true.
@@ -171,6 +184,21 @@ public class SpellContainer {
 		return m;
 	}
 
+	// Method for max/min with filtering
+	public Spell SpellMaxRangebyClass(String c) {
+		return SpellContainer.stream()
+				.filter(sc -> sc.Classes.contains(c))
+				.max(Comparator.comparing(Spell::getRange))
+				.orElse(null);
+	}
 	
+	// Method with filtering and sorting
+	public Set<Spell> SpellsbyClassSortedbyRange(String c) {
+		return SpellContainer.stream()
+				.filter(sc -> sc.Classes.contains(c))
+				.sorted(Comparator.comparing(Spell::getRange))
+				.collect(Collectors.toSet());
+	}
 	
+	//
 }

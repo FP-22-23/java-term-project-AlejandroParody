@@ -21,14 +21,19 @@ public class Spell_test {
 		// Second constructor of the basic type.
 		ArrayList<String> l = new ArrayList<String>();
 		l.add("Wizard");
-		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", b, "", false, LocalDate.now(), 2023, "a");
+		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", "", false, b, LocalDate.now(), 2023);
 		System.out.println(s.toString());
 	
 		testEquality();
+		
 		testNatOrder();
+		
 		testConstrains1();
+		
 		testConstrains2();
+		
 		testConstrains3();
+		
 		
 	}	
 		
@@ -38,7 +43,7 @@ public class Spell_test {
 		Spell a = new Spell("Fireball",School.EVOCATION,b);
 		ArrayList<String> l = new ArrayList<String>();
 		l.add("Wizard");
-		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", b, "", false, LocalDate.now(), 2023, "a");
+		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", "", false, b, LocalDate.now(), 2023);
 		Spell s2 = s;
 		System.out.println(a.equals(s));
 		System.out.print(s.equals(s2));
@@ -50,7 +55,7 @@ public class Spell_test {
 		Spell a = new Spell("Fireball",School.EVOCATION,b);
 		ArrayList<String> l = new ArrayList<String>();
 		l.add("Wizard");
-		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", b, "", false, LocalDate.now(), 2023, "a");
+		Spell s = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", "", false, b, LocalDate.now(), 2023);
 		Spell s2 = s;
 		System.out.println(a.compareTo(s));
 		System.out.println(s2.compareTo(s));
@@ -70,7 +75,7 @@ public class Spell_test {
 		Spelltype b = new Spelltype("1","0");
 		ArrayList<String> l = new ArrayList<String>();
 		l.add("Wizard");
-		Spell w = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, -20.0, "Instantaneous", b, "", false, LocalDate.now(), 2023, "a");
+		Spell w = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", "", false, b, LocalDate.now(), 2023);
 		System.out.print(w);	
 	}
 	
@@ -79,7 +84,7 @@ public class Spell_test {
 		Spelltype b = new Spelltype("1","0");
 		ArrayList<String> l = new ArrayList<String>();
 		l.add("Wizard");
-		Spell e = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", b, "", false, LocalDate.of(2024, 1, 1), 2023, "a");
+		Spell e = new Spell("Lightning bolt",l, School.EVOCATION, Ctime.ACTION, 20.0, "Instantaneous", "", false, b, LocalDate.now(), 2023);
 		System.out.print(e);		
 	}
 }
