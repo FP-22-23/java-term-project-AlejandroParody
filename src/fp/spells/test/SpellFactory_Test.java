@@ -15,8 +15,8 @@ public class SpellFactory_Test {
 	
 		// Test for the third delivery.
 		
-		//SpellContainer b = SpellFactory.readFilefromStream("data/dnd-spells.csv");
-		//System.out.println(b);
+		SpellContainer b = SpellFactory.readFilefromStream("data/dnd-spells.csv");
+		System.out.println(b);
 	}
 
 	//SECOND DELIVERY

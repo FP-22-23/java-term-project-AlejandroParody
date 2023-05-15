@@ -111,7 +111,7 @@ Dominate Beast;Druid, Ranger, Sorcerer;Enchantment;Action;18.29;Concentration, u
 Dominate Monster;Bard, Sorcerer, Warlock, Wizard;Enchantment;Action;18.29;Concentration, up to 1 hour;;1;1;27/05/14
 Dominate Person;Bard, Sorcerer, Wizard;Enchantment;Action;18.29;Concentration, up to 1 minute;;1;1;27/05/14
 Drawmij's Instant Summons;Wizard;Conjuration;1 Minute;0.00;Until dispelled;a sapphire worth 1,000 gp;1;1;27/05/14
-Dream;Bard, Warlock, Wizard;Illusion;1 Minute;;8 hours;a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird;1;1;27/05/14
+Dream;Bard, Warlock, Wizard;Illusion;1 Minute;0.00;8 hours;a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird;1;1;27/05/14
 Druidcraft;Druid;Transmutation;Action;9.15;Instantaneous;;1;1;27/05/14
 Earthquake;Cleric, Druid, Sorcerer;Evocation;Action;152.40;Concentration, up to 1 minute;a pinch o f dirt, a piece o f rock, and a lump of clay;1;1;27/05/14
 Eldritch Blast;Warlock;Evocation;Action;36.58;Instantaneous;;1;1;27/05/14
@@ -238,7 +238,7 @@ Message;Artificer, Bard, Sorcerer, Wizard;Transmutation;Action;36.58;1 round;a s
 Meteor Swarm;Sorcerer, Wizard;Evocation;Action;1609.34;Instantaneous;;1;1;27/05/14
 Mind Blank;Bard, Wizard;Abjuration;Action;0.00;24 hours;;1;1;27/05/14
 Minor Illusion;Bard, Sorcerer, Warlock, Wizard;Illusion;Action;9.15;1 minute;A bit of fleece;0;1;27/05/14
-Mirage Arcane;Bard, Druid, Wizard;Illusion;10 Minutes;;10 days;;1;1;27/05/14
+Mirage Arcane;Bard, Druid, Wizard;Illusion;10 Minutes;0.00;10 days;;1;1;27/05/14
 Mirror Image;Bard, Sorcerer, Warlock, Wizard;Illusion;Action;0.00;1 minute;;1;1;27/05/14
 Mislead;Bard, Warlock, Wizard;Illusion;Action;0.00;Concentration, up to 1 hour;;0;1;27/05/14
 Misty Step;Sorcerer, Warlock, Wizard;Conjuration;Bonus;0.00;Instantaneous;;1;0;27/05/14
@@ -301,7 +301,7 @@ Scrying;Bard, Cleric, Druid, Warlock, Wizard;Divination;10 Minutes;0.00;Concentr
 Searing Smite;Paladin, Ranger;Evocation;Bonus;0.00;Concentration, up to 1 minute;;1;0;27/05/14
 See Invisibility;Artificer, Bard, Sorcerer, Wizard;Divination;Action;0.00;1 hour;pinch of talc and a small sprinkling of powdered silver;1;1;27/05/14
 Seeming;Bard, Sorcerer, Wizard;Illusion;Action;9.15;8 hours;;1;1;27/05/14
-Sending;Bard, Cleric, Wizard;Evocation;Action;;1 round;a short piece of fine copper wire;1;1;27/05/14
+Sending;Bard, Cleric, Wizard;Evocation;Action;0.00;1 round;a short piece of fine copper wire;1;1;27/05/14
 Sequester;Wizard;Transmutation;Action;0.00;Until dispelled;a powder composed of diamond, emerald, ruby, and sapphire dust worth at least 5,000 gp, which the spell consumes;1;1;27/05/14
 Shapechange;Druid, Warlock, Wizard;Transmutation;Action;0.00;Concentration, up to 1 hour;a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell;1;1;27/05/14
 Shatter;Bard, Sorcerer, Warlock, Wizard;Evocation;Action;18.29;Instantaneous;a chip of mica;1;1;27/05/14
@@ -328,7 +328,7 @@ Staggering Smite;Paladin;Evocation;Bonus;0.00;Concentration, up to 1 minute;;1;0
 Stinking Cloud;Bard, Sorcerer, Wizard;Conjuration;Action;27.43;Concentration, up to 1 minute;a rotten egg or several skunk cabbage leaves;1;1;27/05/14
 Stone Shape;Artificer, Cleric, Druid, Wizard;Transmutation;Action;0.00;Instantaneous;soft clay, which must be worked into roughly the desired shape of the stone object;1;1;27/05/14
 Stoneskin;Artificer, Druid, Ranger, Sorcerer, Wizard;Abjuration;Action;0.00;Concentration, up to 1 hour;diamond dust worth 100 gp, which the spell consumes;1;1;27/05/14
-Storm of Vengeance;Druid;Conjuration;Action;;Concentration, up to 1 minute;;1;1;27/05/14
+Storm of Vengeance;Druid;Conjuration;Action;0.00;Concentration, up to 1 minute;;1;1;27/05/14
 Suggestion;Bard, Sorcerer, Warlock, Wizard;Enchantment;Action;9.15;Concentration, up to 8 hours;a snake's tongue and either a bit of honeycomb or a drop of sweet oil;1;0;27/05/14
 Sunbeam;Cleric, Druid, Sorcerer, Wizard;Evocation;Action;0.00;Concentration, up to 1 minute;a magnifying glass;1;1;27/05/14
 Sunburst;Cleric, Druid, Sorcerer, Wizard;Evocation;Action;45.72;Instantaneous;fire and a piece of sunstone;1;1;27/05/14
@@ -336,7 +336,7 @@ Swift Quiver;Ranger;Transmutation;Bonus;0.00;Concentration, up to 1 minute;a qui
 Symbol;Bard, Cleric, Druid, Wizard;Abjuration;1 Minute;0.00;Until dispelled or triggered;mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes;1;1;27/05/14
 Tasha's Hideous Laughter;Bard, Wizard;Enchantment;Action;9.15;Concentration, up to 1 minute;tiny tarts and a feather that is waved in the air;1;1;27/05/14
 Telekinesis;Sorcerer, Wizard;Transmutation;Action;18.29;Concentration, up to 10 minutes;;1;1;27/05/14
-Telepathy;Wizard;Evocation;Action;;24 hours;a pair of linked silver rings;1;1;27/05/14
+Telepathy;Wizard;Evocation;Action;0.00;24 hours;a pair of linked silver rings;1;1;27/05/14
 Teleport;Bard, Sorcerer, Wizard;Conjuration;Action;3.05;Instantaneous;;1;0;27/05/14
 Teleportation Circle;Bard, Sorcerer, Warlock, Wizard;Conjuration;Action;3.05;1 round;rare chalks and inks infused with precious gems with 50 gp, which the spell consumes;1;0;27/05/14
 Tenser's Floating Disk;Wizard;Conjuration;Action;9.15;1 hour;a drop of mercury;1;1;27/05/14
@@ -352,7 +352,7 @@ True Polymorph;Bard, Warlock, Wizard;Transmutation;Action;9.15;Concentration, up
 True Resurrection;Cleric, Druid;Necromancy;1 Hour;0.00;Instantaneous;a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes;1;1;27/05/14
 True Seeing;Bard, Cleric, Sorcerer, Warlock, Wizard;Divination;Action;0.00;1 hour;an ointment for the eyes that costs 25 gp, is made from mushroom powder, saffron, and fat, and is consumed by the spell;1;1;27/05/14
 True Strike;Bard, Sorcerer, Warlock, Wizard;Divination;Action;9.15;Concentration up to 1 round;;0;1;27/05/14
-Tsunami;Druid;Conjuration;Action;;Concentration, up to 6 rounds;;1;1;27/05/14
+Tsunami;Druid;Conjuration;Action;0.00;Concentration, up to 6 rounds;;1;1;27/05/14
 Unseen Servant;Bard, Warlock, Wizard;Conjuration;Action;18.29;1 hour;a piece of string and a bit of wood;1;1;27/05/14
 Vampiric Touch;Sorcerer, Warlock, Wizard;Necromancy;Action;0.00;Concentration, up to 1 minute;;1;1;27/05/14
 Vicious Mockery;Bard;Enchantment;Action;18.29;Instantaneous;;1;0;27/05/14
@@ -445,7 +445,7 @@ Mold Earth;Druid, Sorcerer, Wizard;Transmutation;Action;9.15;Instantaneous or 1 
 Primordial Ward;Druid;Abjuration;Action;0.00;Concentration, up to 1 minute;;1;1;01/03/15
 Pyrotechnics;Artificer, Bard, Sorcerer, Wizard;Transmutation;Action;18.29;Instantaneous;;1;1;01/03/15
 Shape Water;Druid, Sorcerer, Wizard;Transmutation;Action;9.15;Instantaneous or 1 hour;;0;1;01/03/15
-Skywrite;Bard, Druid, Wizard, Artificer;Transmutation;Action;;Concentration, up to 1 day;;1;1;01/03/15
+Skywrite;Bard, Druid, Wizard, Artificer;Transmutation;Action;0.00;Concentration, up to 1 day;;1;1;01/03/15
 Snilloc's Snowball Storm;Sorcerer, Wizard;Evocation;Action;27.43;Instantaneous;a piece of ice or a small white rock chip;1;1;01/03/15
 Storm Sphere;Sorcerer, Wizard;Evocation;Action;45.72;Concentration, up to 1 minute;;1;1;01/03/15
 Thunderclap;Bard, Druid, Sorcerer, Warlock, Wizard, Artificer;Evocation;Action;0.00;Instantaneous;;0;1;01/03/15

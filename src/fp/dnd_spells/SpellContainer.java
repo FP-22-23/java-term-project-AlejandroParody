@@ -162,7 +162,6 @@ public class SpellContainer {
 	public Map<String, Set<Spell>> SpellsbyClassST() {
 		return null;
 				//SpellContainer.stream()
-				//.map();
 	}
 	
 	
