@@ -11,6 +11,8 @@ public class SpellContainer_test {
 
 	public static void main(String[] args) {
 		
+		SpellContainer c = SpellFactory.readFilefromStream("data/dnd-spells.csv");
+		
 		//SECOND DELIVERY
 		
 		//Empty spell container.
@@ -90,7 +92,14 @@ public class SpellContainer_test {
 		a.addItem(SpellFactory.ParseSpell("Create Undead;Cleric, Warlock, Wizard;Necromancy;1 Minute;3.05;Instantaneous;one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse;1;1;27/05/14"));
 		System.out.println(a.SpellsbyClassSortedbyRange("WIZARD"));
 	
+		// Method of delivery 4 with Stream
+		System.out.println(a.SpellbyDatesST());
+		
+		// Method with Collector.collectingAndThen
+		System.out.println(c.NSpellsbyDate());
 	
+		// Method with attribute and max/min
+		System.out.println(c.SpellMaxRangeByCtime());
 	}
 
 }

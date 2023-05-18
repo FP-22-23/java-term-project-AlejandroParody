@@ -24,8 +24,12 @@ public class Spell {
 	LocalDate date; 
 	Integer year;  
 
-	
-	//Constructor 1, receives a name, a school and the spell type.
+	/**
+	 * Constructor 1, receives a name, a school and the spell type.
+	 * @param n, it's the name of the spell we're to create.
+	 * @param s, 
+	 * @param t
+	 */
 	public Spell(String n, School s, Spelltype t) {
 		name = n;
 		Classes = new ArrayList<String>();

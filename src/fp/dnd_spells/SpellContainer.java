@@ -1,14 +1,19 @@
 package fp.dnd_spells;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import fp.auxi.Ctime;
+import fp.auxi.School;
 
 public class SpellContainer {
 
@@ -158,10 +163,12 @@ public class SpellContainer {
 	return m;
 	}
 	
-	// as above but with Streams
-	public Map<String, Set<Spell>> SpellsbyClassST() {
-		return null;
-				//SpellContainer.stream()
+
+	//As above with stream
+	
+	public Map<LocalDate, Set<Spell>> SpellbyDatesST() {
+		return SpellContainer.stream()
+				.collect(Collectors.groupingBy(s -> s.date, Collectors.toSet()));
 	}
 	
 	
@@ -188,7 +195,7 @@ public class SpellContainer {
 		return SpellContainer.stream()
 				.filter(sc -> sc.Classes.contains(c))
 				.max(Comparator.comparing(Spell::getRange))
-				.orElse(null);
+				.get();
 	}
 	
 	// Method with filtering and sorting
@@ -199,5 +206,18 @@ public class SpellContainer {
 				.collect(Collectors.toSet());
 	}
 	
-	//
+	// Method with Collectors.mapping	
+	public Map<LocalDate, Set<String>> NSpellsbyDate() {
+		return SpellContainer.stream()
+				.collect(Collectors.groupingBy(s->s.getDate(), Collectors.mapping(s -> s.name, Collectors.toSet())));
+	}
+	
+	// Method that returns a Map in which the keys are an attribute or a function over an attribute, and the values are 
+	// maximum/minimum of the elements that have that value
+	/*public Map<Object, Optional<Spell>> SpellMaxRangeByCtime() {
+		return SpellContainer.stream();
+	} 
+	*/
+	
+	
 }
