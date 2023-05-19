@@ -17,6 +17,11 @@ import fp.utils.Checkers;
 
 public class SpellFactory {
 
+	/**
+	 * 
+	 * @param line, a string formated as the lines of the CSV.
+	 * @return returns the spell created from taking the data from the line.
+	 */
 	public static Spell ParseSpell(String line) {
 			String [] a = line.split(";");
 			Checkers.check("Invalid string format", a.length == 10);
@@ -36,6 +41,11 @@ public class SpellFactory {
 		return new Spell(name1,Classes1,school1,cast_time1,range1,duration1,mat_cost1,material1,type1,date1,year1);
 	}
 	
+	/**
+	 * 
+	 * @param file, contains the name and path of the CSV file.
+	 * @return a set of spells.
+	 */
 	public static SpellContainer readFilefromPath(String file) {
 		SpellContainer s = null;
 		try {
@@ -51,7 +61,12 @@ public class SpellFactory {
 		return s;
 	}
 	
-	public static SpellContainer readFilefromStream(String file) {
+	/**
+	 * 
+	 * @param file, contains the name and path of the CSV file.
+	 * @return an object of the type SpellContainer that contains all the spells from the CSV file.
+	 */
+	public static SpellContainer readFileStream(String file) {
 		SpellContainer s = null;
 		try {
 		Stream<Spell> sp = Files.lines(Paths.get(file))

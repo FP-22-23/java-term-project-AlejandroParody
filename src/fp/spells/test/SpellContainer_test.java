@@ -11,7 +11,7 @@ public class SpellContainer_test {
 
 	public static void main(String[] args) {
 		
-		SpellContainer c = SpellFactory.readFilefromStream("data/dnd-spells.csv");
+		SpellContainer c = SpellFactory.readFileStream("data/dnd-spells.csv");
 		
 		//SECOND DELIVERY
 		
@@ -99,7 +99,13 @@ public class SpellContainer_test {
 		System.out.println(c.NSpellsbyDate());
 	
 		// Method with attribute and max/min
-		System.out.println(c.SpellMaxRangeByCtime());
+		System.out.println(c.SpellMaxRangeBySchool());
+		
+		// Method with Sorted Map
+		System.out.println(c.SpellsMostRangeBySchool(3));
+		
+		// Method that calculates a Map and returns the key with the associated value (largest) of the entire Map.
+		System.out.println(c.ClassQuantitySpells("smallest"));
 	}
 
 }

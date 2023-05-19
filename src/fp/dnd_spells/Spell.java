@@ -27,8 +27,8 @@ public class Spell {
 	/**
 	 * Constructor 1, receives a name, a school and the spell type.
 	 * @param n, it's the name of the spell we're to create.
-	 * @param s, 
-	 * @param t
+	 * @param s, it's the enum School of the new spell.
+	 * @param t, it's the spelltype of the spell.
 	 */
 	public Spell(String n, School s, Spelltype t) {
 		name = n;
@@ -45,8 +45,20 @@ public class Spell {
 		
 	}
 	
-	
-	//Constructor 2, receives a value for each.
+	/**Constructor 2, receives a value for each
+	 * 
+	 * @param name1
+	 * @param classes1
+	 * @param school1
+	 * @param cast_time1
+	 * @param range1
+	 * @param duration1
+	 * @param mat_cost1
+	 * @param material1
+	 * @param type1
+	 * @param date1
+	 * @param year1
+	 */
 	public Spell(String name1, ArrayList<String> classes1, School school1, Ctime cast_time1, Double range1, String duration1,String mat_cost1, Boolean material1, Spelltype type1, LocalDate date1, Integer year1) {
 		name = name1;
 		Classes = classes1;
@@ -61,13 +73,20 @@ public class Spell {
 		year = year1;
 	}
 
-	//Data constrains, a non-negative value, a date before today, and it needs a name.
+	/**
+	 * Data constrains, a non-negative value, a date before today, and it needs a name.
+	 */
 	public Spell() {
 		Checkers.check("The range can't be negative", range >= 0);
 		Checkers.check("The spell needs a name", !name.equals("") || !name.equals(null));
 		Checkers.check("The date of creation needs to be either today or before", date.isEqual(LocalDate.now()) || date.isBefore(LocalDate.now()));
 	}
 
+	/**
+	 * 
+	 * @param a, a string of text.
+	 * @return the corresponding enum associated to the string introduced.
+	 */
 	public static Ctime cast_time(String a) {
 		if(a.toUpperCase() == Ctime.ACTION.toString()) {
 			return Ctime.ACTION;
@@ -171,16 +190,27 @@ public class Spell {
 		return a;
 	}
 	
-	//derived boolean material from mat_cost
+	/**
+	 * Derived boolean material from mat_cost
+	 * @return if there si a material cost.
+	 */
 	public Boolean getMaterial() {
 		return mat_cost != null;
 	}
 	
-	//get the integer year as a derived
+	/**
+	 * @return the integer year as a derived
+	 */
 	public Integer getYear() {
 		return date.getYear();
 	}
 	
+	/**
+	 * 
+	 * @param a, String associated to verbal
+	 * @param b, String associated to somatic
+	 * @return the Spelltype created by using the two strings
+	 */
 	public static Spelltype parseBool(String a, String b) {
 		Spelltype c = new Spelltype(a, b);
 		return c;
